@@ -1,10 +1,8 @@
-ARG COG_REPO
-ARG COG_MODEL
-ARG COG_VERSION
+ARG REPO
 
-FROM r8.im/${COG_REPO}/${COG_MODEL}@sha256:${COG_VERSION}
+FROM ${REPO}
 
-# Install necessary packages and Python 3.10
+# Install necessary packages and Python 3.10 
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y --no-install-recommends software-properties-common curl git openssh-server && \
     add-apt-repository ppa:deadsnakes/ppa -y && \
